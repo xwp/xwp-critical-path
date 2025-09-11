@@ -13,6 +13,7 @@
 namespace XWP\Performance;
 
 const MAIN_DIR = __DIR__;
+const VERSION = '1.0.0';
 
 // Priority constants for better maintainability
 const PRIORITY_EARLY = 1;       // For actions that need to run very early

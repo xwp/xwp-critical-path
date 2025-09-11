@@ -7,6 +7,8 @@
 
 namespace XWP\Performance\Includes\AdminSettings;
 
+use const XWP\Performance\VERSION;
+
 // Hook into WordPress admin
 add_action( 'admin_menu', __NAMESPACE__ . '\add_admin_menu' );
 add_action( 'admin_init', __NAMESPACE__ . '\settings_init' );
@@ -389,7 +391,7 @@ function enqueue_admin_scripts( $hook ) {
 		'xwp-admin-settings',
 		plugin_dir_url( dirname( __FILE__ ) ) . 'assets/js/admin-settings.js',
 		array(),
-		'1.0.0',
+		VERSION,
 		true
 	);
 	
@@ -398,7 +400,7 @@ function enqueue_admin_scripts( $hook ) {
 		'xwp-admin-settings',
 		plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/admin-settings.css',
 		array(),
-		'1.0.0'
+		VERSION
 	);
 }
 
