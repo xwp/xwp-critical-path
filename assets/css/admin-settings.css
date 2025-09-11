@@ -1,0 +1,21 @@
+/**
+ * Admin settings CSS for XWP Performance Optimizations
+ */
+.xwp-config-field {
+	margin-top: 10px;
+}
+
+.xwp-config-field textarea {
+	width: 100%;
+	max-width: 500px;
+}
+
+.form-table th {
+	vertical-align: top;
+	padding-top: 15px;
+}
+
+#preload-assets-config-css,
+#preload-assets-config-urls {
+	margin-top: 10px;
+}
