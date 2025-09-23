@@ -13,7 +13,7 @@
 namespace XWP\Performance;
 
 const MAIN_DIR = __DIR__;
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 
 // Initialize text domain for internationalization
 add_action( 'init', __NAMESPACE__ . '\load_textdomain' );
