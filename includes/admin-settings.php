@@ -25,8 +25,8 @@ add_action( 'upgrader_process_complete', __NAMESPACE__ . '\clear_performance_tra
  */
 function add_admin_menu() {
 	add_options_page(
-		'Performance - Critical Path',
-		'Critical Path',
+		__( 'Performance - Critical Path', 'xwp-critical-path' ),
+		__( 'Critical Path', 'xwp-critical-path' ),
 		'manage_options',
 		'xwp_critical_path',
 		__NAMESPACE__ . '\options_page'
@@ -44,14 +44,14 @@ function settings_init() {
 	// Section 1: Dequeue Stylesheets
 	add_settings_section(
 		'xwp_dequeue_stylesheets_section',
-		'Dequeue Stylesheets',
+		__( 'Dequeue Stylesheets', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\dequeue_stylesheets_section_callback',
 		'xwp_critical_path'
 	);
 
 	add_settings_field(
 		'dequeue_stylesheets_enabled',
-		'Enable Dequeue Stylesheets',
+		__( 'Enable Dequeue Stylesheets', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\dequeue_stylesheets_enabled_render',
 		'xwp_critical_path',
 		'xwp_dequeue_stylesheets_section'
@@ -59,7 +59,7 @@ function settings_init() {
 
 	add_settings_field(
 		'dequeue_stylesheets_handles',
-		'Stylesheet Handles',
+		__( 'Stylesheet Handles', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\dequeue_stylesheets_handles_render',
 		'xwp_critical_path',
 		'xwp_dequeue_stylesheets_section'
@@ -68,14 +68,14 @@ function settings_init() {
 	// Section 2: Dequeue Scripts
 	add_settings_section(
 		'xwp_dequeue_scripts_section',
-		'Dequeue Scripts',
+		__( 'Dequeue Scripts', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\dequeue_scripts_section_callback',
 		'xwp_critical_path'
 	);
 
 	add_settings_field(
 		'dequeue_scripts_enabled',
-		'Enable Dequeue Scripts',
+		__( 'Enable Dequeue Scripts', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\dequeue_scripts_enabled_render',
 		'xwp_critical_path',
 		'xwp_dequeue_scripts_section'
@@ -83,7 +83,7 @@ function settings_init() {
 
 	add_settings_field(
 		'dequeue_scripts_handles',
-		'Script Handles',
+		__( 'Script Handles', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\dequeue_scripts_handles_render',
 		'xwp_critical_path',
 		'xwp_dequeue_scripts_section'
@@ -92,14 +92,14 @@ function settings_init() {
 	// Section 3: Defer Stylesheets
 	add_settings_section(
 		'xwp_defer_stylesheets_section',
-		'Globally Defer Stylesheets',
+		__( 'Globally Defer Stylesheets', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\defer_stylesheets_section_callback',
 		'xwp_critical_path'
 	);
 
 	add_settings_field(
 		'defer_stylesheets_enabled',
-		'Enable Defer Stylesheets',
+		__( 'Enable Defer Stylesheets', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\defer_stylesheets_enabled_render',
 		'xwp_critical_path',
 		'xwp_defer_stylesheets_section'
@@ -107,7 +107,7 @@ function settings_init() {
 
 	add_settings_field(
 		'defer_stylesheets_blocking_handles',
-		'Render-Blocking Handles',
+		__( 'Render-Blocking Handles', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\defer_stylesheets_blocking_handles_render',
 		'xwp_critical_path',
 		'xwp_defer_stylesheets_section'
@@ -116,14 +116,14 @@ function settings_init() {
 	// Section 4: Defer Scripts
 	add_settings_section(
 		'xwp_defer_scripts_section',
-		'Globally Defer Scripts',
+		__( 'Globally Defer Scripts', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\defer_scripts_section_callback',
 		'xwp_critical_path'
 	);
 
 	add_settings_field(
 		'defer_scripts_enabled',
-		'Enable Defer Scripts',
+		__( 'Enable Defer Scripts', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\defer_scripts_enabled_render',
 		'xwp_critical_path',
 		'xwp_defer_scripts_section'
@@ -131,7 +131,7 @@ function settings_init() {
 
 	add_settings_field(
 		'defer_scripts_blocking_handles',
-		'Blocking Script Handles',
+		__( 'Blocking Script Handles', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\defer_scripts_blocking_handles_render',
 		'xwp_critical_path',
 		'xwp_defer_scripts_section'
@@ -140,14 +140,14 @@ function settings_init() {
 	// Section 5: Load Gutenberg CSS Inline
 	add_settings_section(
 		'xwp_gutenberg_css_section',
-		'Load Gutenberg CSS Inline',
+		__( 'Load Gutenberg CSS Inline', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\gutenberg_css_section_callback',
 		'xwp_critical_path'
 	);
 
 	add_settings_field(
 		'gutenberg_css_inline_enabled',
-		'Enable Gutenberg CSS Inline',
+		__( 'Enable Gutenberg CSS Inline', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\gutenberg_css_inline_enabled_render',
 		'xwp_critical_path',
 		'xwp_gutenberg_css_section'
@@ -156,14 +156,14 @@ function settings_init() {
 	// Section 6: Preload Assets
 	add_settings_section(
 		'xwp_preload_assets_section',
-		'Preload Assets',
+		__( 'Preload Assets', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\preload_assets_section_callback',
 		'xwp_critical_path'
 	);
 
 	add_settings_field(
 		'preload_assets_enabled',
-		'Enable Preload Assets',
+		__( 'Enable Preload Assets', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\preload_assets_enabled_render',
 		'xwp_critical_path',
 		'xwp_preload_assets_section'
@@ -171,7 +171,7 @@ function settings_init() {
 
 	add_settings_field(
 		'preload_css_handles',
-		'CSS Handles',
+		__( 'CSS Handles', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\preload_css_handles_render',
 		'xwp_critical_path',
 		'xwp_preload_assets_section'
@@ -179,7 +179,7 @@ function settings_init() {
 
 	add_settings_field(
 		'preload_custom_urls',
-		'Custom URLs',
+		__( 'Custom URLs', 'xwp-critical-path' ),
 		__NAMESPACE__ . '\preload_custom_urls_render',
 		'xwp_critical_path',
 		'xwp_preload_assets_section'
@@ -190,27 +190,27 @@ function settings_init() {
  * Section callbacks
  */
 function dequeue_stylesheets_section_callback() {
-	echo '<p>Remove unused stylesheets from loading on your site.</p>';
+	echo '<p>' . esc_html__( 'Remove unused stylesheets from loading on your site.', 'xwp-critical-path' ) . '</p>';
 }
 
 function dequeue_scripts_section_callback() {
-	echo '<p>Remove unused scripts from loading on your site.</p>';
+	echo '<p>' . esc_html__( 'Remove unused scripts from loading on your site.', 'xwp-critical-path' ) . '</p>';
 }
 
 function defer_stylesheets_section_callback() {
-	echo '<p>Defer non-critical stylesheets to improve page load speed. Stylesheets NOT in the render-blocking list will be deferred.</p>';
+	echo '<p>' . esc_html__( 'Defer non-critical stylesheets to improve page load speed. Stylesheets NOT in the render-blocking list will be deferred.', 'xwp-critical-path' ) . '</p>';
 }
 
 function defer_scripts_section_callback() {
-	echo '<p>Defer non-critical scripts using WordPress 6.3+ script loading strategies. Scripts NOT in the blocking list will be deferred.</p>';
+	echo '<p>' . esc_html__( 'Defer non-critical scripts using WordPress 6.3+ script loading strategies. Scripts NOT in the blocking list will be deferred.', 'xwp-critical-path' ) . '</p>';
 }
 
 function gutenberg_css_section_callback() {
-	echo '<p>Load Gutenberg block CSS inline only when blocks are used on the page.</p>';
+	echo '<p>' . esc_html__( 'Load Gutenberg block CSS inline only when blocks are used on the page.', 'xwp-critical-path' ) . '</p>';
 }
 
 function preload_assets_section_callback() {
-	echo '<p>Preload critical assets like CSS files and fonts to improve LCP (Largest Contentful Paint).</p>';
+	echo '<p>' . esc_html__( 'Preload critical assets like CSS files and fonts to improve LCP (Largest Contentful Paint).', 'xwp-critical-path' ) . '</p>';
 }
 
 /**
@@ -234,8 +234,8 @@ function dequeue_stylesheets_handles_render() {
 	<div class="xwp-config-field" id="dequeue-stylesheets-config" style="<?php echo esc_attr( $enabled ? '' : 'display:none;' ); ?>">
 		<textarea name='xwp_performance_settings[dequeue_stylesheets_handles]' 
 				  rows='5' cols='50' 
-				  placeholder="Enter stylesheet handles, one per line"><?php echo esc_textarea( $value ); ?></textarea>
-		<p class="description">Enter the stylesheet handles to dequeue, one per line (e.g., handle-a)</p>
+				  placeholder="<?php echo esc_attr__( 'Enter stylesheet handles, one per line', 'xwp-critical-path' ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
+		<p class="description"><?php echo esc_html__( 'Enter the stylesheet handles to dequeue, one per line (e.g., handle-a)', 'xwp-critical-path' ); ?></p>
 	</div>
 	<?php
 }
@@ -258,8 +258,8 @@ function dequeue_scripts_handles_render() {
 	<div class="xwp-config-field" id="dequeue-scripts-config" style="<?php echo esc_attr( $enabled ? '' : 'display:none;' ); ?>">
 		<textarea name='xwp_performance_settings[dequeue_scripts_handles]' 
 				  rows='5' cols='50' 
-				  placeholder="Enter script handles, one per line"><?php echo esc_textarea( $value ); ?></textarea>
-		<p class="description">Enter the script handles to dequeue, one per line (e.g., handle-a)</p>
+				  placeholder="<?php echo esc_attr__( 'Enter script handles, one per line', 'xwp-critical-path' ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
+		<p class="description"><?php echo esc_html__( 'Enter the script handles to dequeue, one per line (e.g., handle-a)', 'xwp-critical-path' ); ?></p>
 	</div>
 	<?php
 }
@@ -282,8 +282,8 @@ function defer_stylesheets_blocking_handles_render() {
 	<div class="xwp-config-field" id="defer-stylesheets-config" style="<?php echo esc_attr( $enabled ? '' : 'display:none;' ); ?>">
 		<textarea name='xwp_performance_settings[defer_stylesheets_blocking_handles]' 
 				  rows='5' cols='50' 
-				  placeholder="Enter render-blocking stylesheet handles, one per line"><?php echo esc_textarea( $value ); ?></textarea>
-		<p class="description">Enter stylesheet handles that should remain render-blocking (not deferred), one per line (e.g., twenty-twenty-one-style)</p>
+				  placeholder="<?php echo esc_attr__( 'Enter render-blocking stylesheet handles, one per line', 'xwp-critical-path' ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
+		<p class="description"><?php echo esc_html__( 'Enter stylesheet handles that should remain render-blocking (not deferred), one per line (e.g., twenty-twenty-one-style)', 'xwp-critical-path' ); ?></p>
 	</div>
 	<?php
 }
@@ -306,8 +306,8 @@ function defer_scripts_blocking_handles_render() {
 	<div class="xwp-config-field" id="defer-scripts-config" style="<?php echo esc_attr( $enabled ? '' : 'display:none;' ); ?>">
 		<textarea name='xwp_performance_settings[defer_scripts_blocking_handles]' 
 				  rows='5' cols='50' 
-				  placeholder="Enter blocking script handles, one per line"><?php echo esc_textarea( $value ); ?></textarea>
-		<p class="description">Enter script handles that should NOT be deferred (remain blocking), one per line (e.g., handle-a)</p>
+				  placeholder="<?php echo esc_attr__( 'Enter blocking script handles, one per line', 'xwp-critical-path' ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
+		<p class="description"><?php echo esc_html__( 'Enter script handles that should NOT be deferred (remain blocking), one per line (e.g., handle-a)', 'xwp-critical-path' ); ?></p>
 	</div>
 	<?php
 }
@@ -318,7 +318,7 @@ function gutenberg_css_inline_enabled_render() {
 	?>
 	<input type='checkbox' name='xwp_performance_settings[gutenberg_css_inline_enabled]' 
 		   value='1' <?php checked( $checked, 1 ); ?>>
-	<p class="description">Load Gutenberg block CSS inline only when the block is used on the page</p>
+	<p class="description"><?php echo esc_html__( 'Load Gutenberg block CSS inline only when the block is used on the page', 'xwp-critical-path' ); ?></p>
 	<?php
 }
 
@@ -340,8 +340,8 @@ function preload_css_handles_render() {
 	<div class="xwp-config-field" id="preload-assets-config-css" style="<?php echo esc_attr( $enabled ? '' : 'display:none;' ); ?>">
 		<textarea name='xwp_performance_settings[preload_css_handles]' 
 				  rows='5' cols='50' 
-				  placeholder="Enter CSS handles to preload, one per line"><?php echo esc_textarea( $value ); ?></textarea>
-		<p class="description">Enter CSS stylesheet handles to preload, one per line (e.g., handle-a)</p>
+				  placeholder="<?php echo esc_attr__( 'Enter CSS handles to preload, one per line', 'xwp-critical-path' ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
+		<p class="description"><?php echo esc_html__( 'Enter CSS stylesheet handles to preload, one per line (e.g., handle-a)', 'xwp-critical-path' ); ?></p>
 	</div>
 	<?php
 }
@@ -354,8 +354,8 @@ function preload_custom_urls_render() {
 	<div class="xwp-config-field" id="preload-assets-config-urls" style="<?php echo esc_attr( $enabled ? '' : 'display:none;' ); ?>">
 		<textarea name='xwp_performance_settings[preload_custom_urls]' 
 				  rows='5' cols='50' 
-				  placeholder="Enter custom URLs to preload, one per line"><?php echo esc_textarea( $value ); ?></textarea>
-		<p class="description">Enter custom URLs to preload (e.g., font URLs), one per line. You can use relative paths like /wp-content/themes/your-theme/assets/fonts/font.woff2</p>
+				  placeholder="<?php echo esc_attr__( 'Enter custom URLs to preload, one per line', 'xwp-critical-path' ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
+		<p class="description"><?php echo esc_html__( 'Enter custom URLs to preload (e.g., font URLs), one per line. You can use relative paths like /wp-content/themes/your-theme/assets/fonts/font.woff2', 'xwp-critical-path' ); ?></p>
 	</div>
 	<?php
 }
@@ -366,7 +366,7 @@ function preload_custom_urls_render() {
 function options_page() {
 	?>
 	<div class="wrap">
-		<h1>Performance Critical Path</h1>
+		<h1><?php echo esc_html__( 'Performance Critical Path', 'xwp-critical-path' ); ?></h1>
 		<form action='options.php' method='post'>
 			<?php
 			settings_fields( 'xwp_critical_path' );
