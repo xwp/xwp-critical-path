@@ -15,6 +15,20 @@ namespace XWP\Performance;
 const MAIN_DIR = __DIR__;
 const VERSION = '1.0.0';
 
+// Initialize text domain for internationalization
+add_action( 'init', __NAMESPACE__ . '\load_textdomain' );
+
+/**
+ * Load plugin text domain for internationalization
+ */
+function load_textdomain() {
+	load_plugin_textdomain( 
+		'xwp-critical-path', 
+		false, 
+		dirname( plugin_basename( __FILE__ ) ) . '/languages/' 
+	);
+}
+
 // Priority constants for better maintainability
 const PRIORITY_EARLY = 1;       // For actions that need to run very early
 const PRIORITY_DEFAULT = 10;    // WordPress default priority
@@ -38,7 +52,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), __NAMESPACE__ 
  * @return array Modified plugin action links.
  */
 function add_settings_link( $links ) {
-	$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=xwp_critical_path' ) ) . '">' . __( 'Settings' ) . '</a>';
+	$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=xwp_critical_path' ) ) . '">' . __( 'Settings', 'xwp-critical-path' ) . '</a>';
 	array_unshift( $links, $settings_link );
 	return $links;
 }
