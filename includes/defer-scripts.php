@@ -48,26 +48,10 @@ function modify_script_loading_strategies() {
 		? parse_textarea_lines( $settings['defer_scripts_blocking_handles'] )
 		: array();
 	
-	// Create cache key based on blocking scripts configuration
-	$cache_key = 'xwp_defer_scripts_' . md5( serialize( $blocking_scripts ) );
-	$cached_handles = get_transient( $cache_key );
-	
 	// Get all registered scripts
 	$wp_scripts = wp_scripts();
 	
-	// If we have cached handles, use them for better performance
-	if ( false !== $cached_handles && is_array( $cached_handles ) ) {
-		foreach ( $cached_handles as $handle ) {
-			if ( isset( $wp_scripts->registered[ $handle ] ) ) {
-				$wp_scripts->registered[ $handle ]->extra['strategy'] = 'defer';
-			}
-		}
-		return;
-	}
-	
-	// Build list of handles to defer and cache them
-	$handles_to_defer = array();
-	
+	// Iterate through all registered scripts and defer non-blocking ones
 	foreach ( $wp_scripts->registered as $handle => $script ) {
 		// Skip if this script should remain blocking
 		if ( in_array( $handle, $blocking_scripts, true ) ) {
@@ -82,11 +66,5 @@ function modify_script_loading_strategies() {
 		// Set the loading strategy to 'defer' for this script
 		// This uses the modern WordPress API for script loading strategies
 		$script->extra['strategy'] = 'defer';
-		$handles_to_defer[] = $handle;
-	}
-	
-	// Cache the handles for 24 hours
-	if ( ! empty( $handles_to_defer ) ) {
-		set_transient( $cache_key, $handles_to_defer, 24 * HOUR_IN_SECONDS );
 	}
 }
