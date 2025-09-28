@@ -3,7 +3,7 @@
  * Plugin Name: XWP Critical Path
  * Plugin URI: https://xwp.co/
  * Description: Site-specific LCP-focused performance optimizations
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: XWP
  * Author URI: https://xwp.co/
  *
