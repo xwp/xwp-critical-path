@@ -263,3 +263,8 @@ For issues, feature requests, or contributions, please contact XWP or use the pl
 - WordPress VIP coding standards compliance
 - Comprehensive input sanitization
 - Performance-focused architecture
+
+### 1.0.1
+
+- Remove transient caching system
+- Add support for internationalization

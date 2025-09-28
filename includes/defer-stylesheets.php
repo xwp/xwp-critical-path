@@ -15,7 +15,7 @@ use function XWP\Performance\Includes\AdminSettings\parse_textarea_lines;
 // Hook into WordPress's style loader tag filter
 add_filter( 'style_loader_tag', __NAMESPACE__ . '\defer_non_critical_stylesheets', 10, 4 );
 
-// Cache for render-blocking handles to improve performance
+// In-memory global cache for render-blocking handles to improve performance, it avoids running get_settings for each stylesheet processed.
 $GLOBALS['xwp_render_blocking_cache'] = null;
 
 /**
@@ -26,7 +26,7 @@ $GLOBALS['xwp_render_blocking_cache'] = null;
 function get_render_blocking_handles() {
 	global $xwp_render_blocking_cache;
 	
-	// Return cached value if available
+	// Return cached value if available for this request
 	if ( is_array( $xwp_render_blocking_cache ) ) {
 		return $xwp_render_blocking_cache;
 	}
@@ -39,22 +39,10 @@ function get_render_blocking_handles() {
 		? parse_textarea_lines( $settings['defer_stylesheets_blocking_handles'] )
 		: array();
 	
-	// Create cache key based on configuration
-	$cache_key = 'xwp_defer_styles_' . md5( serialize( $render_blocking_handles ) );
+	// Store in global cache for this request to avoid repeated parsing
+	$xwp_render_blocking_cache = $render_blocking_handles;
 	
-	// Try to get from transient
-	$cached_handles = get_transient( $cache_key );
-	
-	if ( false === $cached_handles ) {
-		// Store in transient for 24 hours
-		set_transient( $cache_key, $render_blocking_handles, 24 * HOUR_IN_SECONDS );
-		$cached_handles = $render_blocking_handles;
-	}
-	
-	// Store in global cache for this request
-	$xwp_render_blocking_cache = $cached_handles;
-	
-	return $cached_handles;
+	return $render_blocking_handles;
 }
 
 /**
