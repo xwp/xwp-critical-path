@@ -28,7 +28,6 @@ A comprehensive WordPress performance optimization plugin focused on improving L
   - Automatic per-page optimization
 
 - **Performance Features**
-  - Transient caching for improved performance on high-traffic sites
   - Automatic cache invalidation on configuration changes
   - Request-level caching to minimize database queries
   - Smart cache clearing on plugin/theme changes
@@ -124,13 +123,7 @@ xwp-critical-path/
 
 ### Performance Optimizations
 
-- **Transient Caching**: 12-hour cache for processed handles
 - **Request-Level Caching**: Global variables prevent redundant processing
-- **Smart Invalidation**: Automatic cache clearing on:
-  - Settings updates
-  - Plugin activation/deactivation
-  - Theme switches
-  - WordPress updates
 
 ## Hooks and Actions
 
@@ -173,15 +166,6 @@ use function XWP\Performance\Includes\AdminSettings\parse_textarea_lines;
 
 // Convert textarea input to array
 $handles = parse_textarea_lines( $settings['dequeue_scripts_handles'] );
-```
-
-### Manual Cache Clearing
-
-```php
-use function XWP\Performance\Includes\AdminSettings\clear_performance_transients;
-
-// Clear all performance-related caches
-clear_performance_transients();
 ```
 
 ## Security
@@ -238,12 +222,6 @@ clear_performance_transients();
 - Check browser console for dependency issues, as for example inline scripts that have dependencies will require them to be added to the blocking script handles allow list.
 - Add problematic scripts to blocking list
 
-### Cache Issues
-
-- Settings changes automatically clear cache
-- Cache is also cleared when plugins/themes change
-- Transients expire after 12 hours automatically
-
 ## License
 
 GPLv2 or later
@@ -258,8 +236,6 @@ For issues, feature requests, or contributions, please contact XWP or use the pl
 
 - Initial release with six optimization modules
 - Admin interface for configuration
-- Transient caching system
-- Smart cache invalidation
 - WordPress VIP coding standards compliance
 - Comprehensive input sanitization
 - Performance-focused architecture
