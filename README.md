@@ -38,6 +38,33 @@ A comprehensive WordPress performance optimization plugin focused on improving L
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Configure settings under Settings > Performance Custom
 
+### Using Composer
+
+To install the plugin via Composer, follow these steps:
+
+1. **Add the Repository:**
+   - Open your project's `composer.json` file.
+   - Add the following under the `repositories` section:
+
+     ```json
+     "repositories": [
+         {
+             "type": "vcs",
+             "url": "https://github.com/xwp/xwp-critical-path"
+         }
+     ]
+     ```
+
+2. **Require the Plugin:**
+   - Run the following command in your terminal:
+
+     ```bash
+     composer require xwp/xwp-critical-path
+     ```
+
+3. **Activate the Plugin:**
+   - Once installed, activate the plugin through the 'Plugins' menu in WordPress.
+
 ## Configuration
 
 ### Dequeue Stylesheets
